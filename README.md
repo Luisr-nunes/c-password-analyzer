@@ -11,7 +11,6 @@
 <br>
 
 ![Tipo](https://img.shields.io/badge/Tipo-Projeto_Prático-4A4A4A?style=flat-square)
-![Instituição](https://img.shields.io/badge/Instituição-CESAR_School-6A0DAD?style=flat-square)
 ![Status](https://img.shields.io/badge/Status-Concluído-2E8B57?style=flat-square)
 
 <br>
@@ -116,7 +115,6 @@ Força: * FORTE *
 <div align="center">
 
 **Luis Felipe Farias Nunes**
-Estudante de ADS — CESAR School
 
 [![GitHub](https://img.shields.io/badge/GitHub-Luisr--nunes-181717?style=flat-square&logo=github)](https://github.com/Luisr-nunes)
 
