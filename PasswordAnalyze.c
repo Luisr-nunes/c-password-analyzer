@@ -29,3 +29,14 @@ int main() {
     return 0;
 
 }
+
+int score = 0;
+
+if (comprimento >= 8) score += 1;
+if (comprimento >= 12) score += 1;
+if (comprimento >= 16) score += 1;
+
+if (tem_maiuscula) score += 1;
+if (tem_minuscula) score += 1;
+if (tem_numero) score += 1;
+if (tem_especial) score += 2;
