@@ -1,95 +1,57 @@
-<div align="center">
+# Analisador de Força de Senhas
 
-# 🔐 Analisador de Força de Senhas
+<!-- badges -->
+![C](https://img.shields.io/badge/C-A8B9CC?style=flat-square&logo=c&logoColor=white) ![GCC](https://img.shields.io/badge/GCC-A42E2B?style=flat-square&logo=gnu&logoColor=white)
 
-### Verificador de segurança de senhas em C
+[Read in English](README.en.md)
 
-<br>
+Programa de linha de comando em C que avalia a força de uma senha, atribui uma pontuação e sugere o que melhorar.
 
-![C](https://img.shields.io/badge/C-C11-A8B9CC?style=flat-square&logo=c&logoColor=white)
+## Sobre
 
-<br>
-
-![Tipo](https://img.shields.io/badge/Tipo-Projeto_Prático-4A4A4A?style=flat-square)
-![Status](https://img.shields.io/badge/Status-Concluído-2E8B57?style=flat-square)
-
-<br>
-
-> *Programa em C que analisa a força de uma senha com base em critérios de segurança,*
-> *atribui uma pontuação e fornece sugestões práticas de melhoria.*
-
-</div>
-
----
-
-## Sobre o Projeto
-
-O **Analisador de Força de Senhas** é um programa de linha de comando escrito em C11 que avalia a segurança de uma senha em tempo real. A análise verifica comprimento, presença de letras maiúsculas e minúsculas, números e caracteres especiais — calculando uma pontuação de 0 a 7 e classificando a senha em quatro níveis: **Fraca**, **Média**, **Forte** ou **Muito Forte**.
-
-Ao final, o programa exibe sugestões específicas para os critérios que ainda não foram atendidos.
-
----
+O programa lê uma senha, verifica comprimento e diversidade de caracteres, soma pontos por critério atendido, classifica a senha em quatro níveis e lista sugestões para os critérios que faltaram.
 
 ## Funcionalidades
 
-- **Leitura segura** — usa `fgets` com limite de buffer, sem risco de overflow
-- **Análise de critérios** — verifica maiúsculas, minúsculas, números e especiais via `<ctype.h>`
-- **Sistema de pontuação** — score de 0 a 7 com peso extra para caracteres especiais
-- **Classificação em 4 níveis** — Fraca / Média / Forte / Muito Forte
-- **Sugestões personalizadas** — indica exatamente o que está faltando na senha
+- Leitura com `fgets` e limite de buffer, removendo a quebra de linha com `strcspn`.
+- Detecção de maiúsculas, minúsculas, números e caracteres especiais com `<ctype.h>`.
+- Pontuação por comprimento e diversidade, com peso dobrado para caracteres especiais.
+- Classificação em Fraca, Média, Forte ou Muito Forte.
+- Sugestões específicas para cada critério não atendido.
 
----
-
-## Como Funciona
-
-```
-1. LEITURA     → fgets captura a senha e remove o '\n' com strcspn
-2. ANÁLISE     → loop percorre cada char com funções de <ctype.h>
-3. PONTUAÇÃO   → score acumula pontos por comprimento e diversidade
-4. RESULTADO   → classificação por intervalo de score (0–2 / 3–4 / 5–6 / 7)
-5. SUGESTÕES   → critérios não atendidos geram dicas específicas
-```
-
----
-
-## Critérios de Pontuação
+## Critérios de pontuação
 
 | Critério | Pontos |
-|---|---|
-| Comprimento ≥ 8 caracteres | +1 |
-| Comprimento ≥ 12 caracteres | +1 |
-| Comprimento ≥ 16 caracteres | +1 |
-| Letra maiúscula (A–Z) | +1 |
-| Letra minúscula (a–z) | +1 |
-| Número (0–9) | +1 |
-| Caractere especial (!@#$%…) | +2 |
-| **Total máximo** | **7** |
+| --- | --- |
+| Comprimento ≥ 8 | +1 |
+| Comprimento ≥ 12 | +1 |
+| Comprimento ≥ 16 | +1 |
+| Letra maiúscula | +1 |
+| Letra minúscula | +1 |
+| Número | +1 |
+| Caractere especial | +2 |
 
----
+| Pontuação | Classificação |
+| --- | --- |
+| 0 a 2 | Fraca |
+| 3 a 4 | Média |
+| 5 a 6 | Forte |
+| 7 ou mais | Muito Forte |
 
-## Estrutura
+A soma máxima dos critérios é 9, embora a saída do programa exiba a pontuação sobre 7 (por exemplo, `8 / 7`). A classificação não é afetada.
 
-```
-c-password-analyzer/
-└── analisador.c      # Código-fonte principal
-```
+## Como executar
 
----
-
-## Como Usar
-
-### Pré-requisitos
-
-- GCC ou qualquer compilador C11 compatível
-
-### Compilar e executar
+Pré-requisito: GCC ou outro compilador C11.
 
 ```bash
-gcc -o analisador analisador.c
+git clone https://github.com/Luisr-nunes/c-password-analyzer.git
+cd c-password-analyzer
+gcc -Wall -o analisador analisador.c
 ./analisador
 ```
 
-### Exemplo de saída
+Exemplo de saída:
 
 ```
 Digite uma senha: Senha@2024!
@@ -108,22 +70,14 @@ Força: * FORTE *
 - Aumente para pelo menos 12 caracteres.
 ```
 
----
+## Estrutura
+
+```
+c-password-analyzer/
+├── analisador.c     # código-fonte
+└── analisador.exe   # binário compilado para Windows
+```
 
 ## Autor
 
-<div align="center">
-
-**Luis Felipe Farias Nunes**
-
-[![GitHub](https://img.shields.io/badge/GitHub-Luisr--nunes-181717?style=flat-square&logo=github)](https://github.com/Luisr-nunes)
-
-</div>
-
----
-
-<div align="center">
-
-*🔒 Segurança começa com uma boa senha — e uma boa senha começa aqui.*
-
-</div>
+Luís Nunes — [GitHub](https://github.com/Luisr-nunes) · [LinkedIn](https://www.linkedin.com/in/luis-nunes-dev/)
