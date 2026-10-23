@@ -1,5 +1,8 @@
 # Password Strength Analyzer
 
+<!-- badges -->
+![C](https://img.shields.io/badge/C-A8B9CC?style=flat-square&logo=c&logoColor=white) ![GCC](https://img.shields.io/badge/GCC-A42E2B?style=flat-square&logo=gnu&logoColor=white)
+
 [Ler em Português](README.md)
 
 A C command-line program that rates the strength of a password, assigns a score and suggests improvements.
